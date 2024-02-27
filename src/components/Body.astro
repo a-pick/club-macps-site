@@ -15,7 +15,7 @@ const { headerTitle } = Astro.props;
 
 <script>
     // Used to offset the body content by the height of the header.
-    if (document.getElementById('header')) {
+    if (document.getElementById('header') != null) {
         const headerHeight = document.getElementById('header').offsetHeight + 'px';
         document.documentElement.style.setProperty('--headerHeight', headerHeight);
     }
