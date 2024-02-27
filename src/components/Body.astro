@@ -1,0 +1,20 @@
+---
+const { headerTitle } = Astro.props;
+---
+
+<main-body class="text-white max-w-screen-xl flex flex-col m-auto top-0 left-0 bottom-0 right-0 w-[calc(100vw-theme(spacing.8))]">
+    <div class="text-xl md:text-2xl font-semilight text-center p-4 mt-4 bg-red-600 flex place-self-center rounded-se-lg rounded-ss-lg">
+        {headerTitle}
+    </div>
+    <div class="p-8 bg-red-500 rounded-lg h-full flex place-content-center">
+        <article class="prose prose-red prose-sm md:prose-lg text-center">
+            <slot />
+        </article>
+    </div>
+</main-body>
+
+<script>
+    // Used to offset the body content by the height of the header.
+    const headerHeight = document.getElementById('header').offsetHeight + 'px';
+    document.documentElement.style.setProperty('--headerHeight', headerHeight);
+</script>

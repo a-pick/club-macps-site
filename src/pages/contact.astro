@@ -1,0 +1,11 @@
+---
+import Wrapper from "../components/Wrapper.astro";
+import { getEntry } from "astro:content";
+
+const contactBlurb = await getEntry('contact_page', 'contact');
+const { Content } = await contactBlurb.render();
+---
+
+<Wrapper pageTitle={contactBlurb.data.pageTitle} headerTitle={contactBlurb.data.headerTitle}>
+	<Content />
+</Wrapper>

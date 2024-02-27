@@ -1,16 +1,11 @@
 ---
-import Wrapper from "../components/Wrapper.astro"
+import Wrapper from "../components/Wrapper.astro";
+import { getEntry } from "astro:content";
+
+const welcomeBlurb = await getEntry('welcome_page', 'welcome');
+const { Content } = await welcomeBlurb.render();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Club MacPS</title>
-	</head>
-	<body class="bg-red-950">
-		<Wrapper />
-	</body>
-</html>
+<Wrapper pageTitle={welcomeBlurb.data.pageTitle} headerTitle={welcomeBlurb.data.headerTitle}>
+	<Content />
+</Wrapper>

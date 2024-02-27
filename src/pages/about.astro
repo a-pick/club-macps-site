@@ -1,0 +1,11 @@
+---
+import Wrapper from "../components/Wrapper.astro";
+import { getEntry } from "astro:content";
+
+const aboutBlurb = await getEntry('about_page', 'about');
+const { Content } = await aboutBlurb.render();
+---
+
+<Wrapper pageTitle={aboutBlurb.data.pageTitle} headerTitle={aboutBlurb.data.headerTitle}>
+	<Content />
+</Wrapper>
